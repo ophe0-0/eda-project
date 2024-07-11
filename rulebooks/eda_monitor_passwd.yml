@@ -10,6 +10,7 @@
   rules:
     - name: Check /etc/passwd changes
       condition: event.source == 'filesystem' and event.state == 'modified'
-      actions:
-        - run_playbook:
-            name: passwd_restore.yml
+      action:
+        run_job_template:
+          name: User and Group Password File Restore
+          organization: Default
