@@ -1,0 +1,15 @@
+---
+- name: Monitor /etc/passwd file for changes
+  hosts: localhost
+
+  sources:
+    - ansible.builtin.filesystem:
+        paths:
+          - /etc/passwd
+        state: modified
+  rules:
+    - name: Check /etc/passwd changes
+      condition: event.source == 'filesystem' and event.state == 'modified'
+      actions:
+        - run_playbook:
+            name: passwd_restore.yml

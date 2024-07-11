@@ -1,0 +1,7 @@
+---
+- name: Remove Systemd Paths
+  hosts: all
+  gather_facts: false
+
+  roles:
+    - systemd_remove
