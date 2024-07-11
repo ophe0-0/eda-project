@@ -4,7 +4,7 @@
     src: /tmp/home/userfiles/{{ item }}
     dest: /tmp/
     flat: true
-  delegate_to: vm_host
+  delegate_to: test.local
   loop:
     - passwd
     - shadow
