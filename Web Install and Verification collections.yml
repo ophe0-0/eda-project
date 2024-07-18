@@ -1,7 +1,7 @@
 ---
 - name: Install web server, insert an index page, verify service is started and that the index page appears
   hosts: "{{ vm_name | default('all') }}"
-  gather_facts: false
+  gather_facts: true
 
   tasks:
     - name: RHEL Apache config
