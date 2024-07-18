@@ -1,0 +1,16 @@
+---
+- name: HTTPD_running
+  ansible.builtin.service:
+    name: httpd
+    state: started
+    enabled: true
+
+- name: IIS_running
+  ansible.windows.win_service:
+    name: W3Svc
+    state: started
+
+- name: Restart_firewalld
+  ansible.builtin.service:
+    name: firewalld
+    state: restarted
